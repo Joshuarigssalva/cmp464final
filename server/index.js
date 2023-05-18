@@ -5,7 +5,7 @@ const express = require('express')
 const path = require('path')
 
 // define a PORT for our server to run
-const PORT = 8000
+const PORT = 9000
 
 
 //new code from tutorial for postgres
@@ -49,14 +49,16 @@ app.listen(PORT, () => {
     console.log(`Server is listening on PORT ${PORT}`)
 })
 
-//new code from tutorial for postgres
-const db = require('./queries')
+const HTTPMETHODS = ["GET", "POST", "PUT", "PATCH", "DELETE"]
 
-app.get('/myfavlinks', db.getLinks)
-app.get('/myfavlinks/:id', db.getLinkById)
-app.post('/myfavlinks', db.createLink)
-app.put('/myfavlinks/:id', db.updatedLink)
-app.delete('/myfavlinks/:id', db.deleteLink)
+//new code from tutorial for postgres
+//const db = require('./queries')
+
+// app.get('/myfavlinks', db.getLinks)
+// app.get('/myfavlinks/:id', db.getLinkById)
+// app.post('/myfavlinks', db.createLink)
+// app.put('/myfavlinks/:id', db.updatedLink)
+// app.delete('/myfavlinks/:id', db.deleteLink)
 
 //class code and notes example
 //app.post('/new', db.creatingLink)
