@@ -49,8 +49,6 @@ app.listen(PORT, () => {
     console.log(`Server is listening on PORT ${PORT}`)
 })
 
-const HTTPMETHODS = ["GET", "POST", "PUT", "PATCH", "DELETE"]
-
 //new code from tutorial for postgres
 //const db = require('./queries')
 
