@@ -51,7 +51,7 @@ app.listen(PORT, () => {
 
 //new code from tutorial for postgres
 // const db = require('./queries')
-const db = require('/queries')
+const db = require('./queries')
 
  app.get('/favanime', db.getLinks)
  app.get('/favanime/:id', db.getLinkById)
