@@ -8,7 +8,7 @@ const LinkContainer = (props) => {
   //class code and notes example
   const fetchLinks = async () => {
     try {
-      let response = await fetch('/namelinks')
+      let response = await fetch('/favanime')
       console.log(response)
       let data = await response.json()
       console.log(data)
@@ -24,7 +24,7 @@ const LinkContainer = (props) => {
     }
 
     try {
-      let response = await fetch('/myfavlinks', {
+      let response = await fetch('/favanime', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -45,7 +45,7 @@ const LinkContainer = (props) => {
     // fetchLinks()
     //postLink()
     const getLinks = async () => {
-      const data = await fetch('/myfavlinks')
+      const data = await fetch('/favanime')
       const json = await data.json()
       setArray(json)
     }
@@ -60,7 +60,7 @@ const LinkContainer = (props) => {
     /*
             TODO - Create logic for setting the state to filter array and remove favLink at index
         */
-      await fetch(`/myfavlinks/${id}`, {method: 'DELETE'})
+      await fetch(`/favanime/${id}`, {method: 'DELETE'})
        
   }
 
@@ -69,7 +69,7 @@ const LinkContainer = (props) => {
     setArray([...array, linkobject])
     //alert("clicked")
     console.log(linkobject)
-    await fetch(`/myfavlinks`, {
+    await fetch(`/favanime`, {
       method: 'POST', 
       headers: {
         'Content-Type': 'application/json'

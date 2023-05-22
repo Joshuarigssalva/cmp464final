@@ -29,7 +29,7 @@ const Form = ( {handleSubmit}) => {
 
       <div>
 
-        <div>Name of Website</div>
+        <div>Name of Anime</div>
 
         <input
           onChange={handleChange}

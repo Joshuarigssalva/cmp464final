@@ -21,7 +21,7 @@ const TableBody = ({linkData, removeLink}) => {
       <tr key={index} style={{border: "5px solid grey" }}>
         <td style={{padding:'15px 0px'}}>{row.animename}</td>
         <td style={{padding:'15px 0px'}}>
-          <a style={{color:'blue'}} href={row.animeurl} target='_blank'>{row.url}</a>
+          <a style={{color:'blue'}} href={row.animeurl} target='_blank'>{row.animeurl}</a>
         </td>
         <td width={'15%'} style={{padding:'0px 0px'}}>
         <button type="submit"
