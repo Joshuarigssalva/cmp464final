@@ -7,7 +7,7 @@ const POOL = require('pg').Pool
 const pool = new POOL({
   user: 'me',
   host: 'localhost',
-  database: 'api',
+  database: 'apifinal',
   password: 'password',
   port: 5432,
 })
@@ -34,7 +34,7 @@ const pool = new POOL({
 //GET all links
 const getLinks = (request, response) => {
     //get back all the data currently in the database
-    pool.query('SELECT * FROM myfavlinks ORDER BY id ASC', 
+    pool.query('SELECT * FROM favanime ORDER BY id ASC', 
     (error, results) => {
         if (error) {
             throw error
@@ -49,7 +49,7 @@ const getLinks = (request, response) => {
 const getLinkById = (request, response) => {
     const id = parseInt(request.params.id)
 
-    pool.query('SELECT * FROM myfavlinks WHERE id = $1', [id], 
+    pool.query('SELECT * FROM favanime WHERE id = $1', [id], 
     (error, results) => {
         if (error) {
             throw error
@@ -64,12 +64,12 @@ const getLinkById = (request, response) => {
 
 //POST a new link
 const createLink = (request, response) => {
-    const { name, url } = request.body
+    const { animename, animeurl } = request.body
 
-    if (name && url) {
+    if (animename && animeurl) {
 
-    pool.query('INSERT INTO myfavlinks (name, url) VALUES ($1, $2) RETURNING *', 
-    [name, url], (error, results) => {
+    pool.query('INSERT INTO favanime (animename, animeurl) VALUES ($1, $2) RETURNING *', 
+    [animename, animeurl], (error, results) => {
         if (error) {
             throw error
         }
@@ -88,11 +88,11 @@ const createLink = (request, response) => {
 //PUT updated data in an existing Link
 const updatedLink = (request, response) => {
     const id = parseInt(request.params.id)
-    const { name, url } = request.body
+    const { animename, animeurl } = request.body
 
     pool.query(
-        'UPDATE myfavlinks SET name = $1, url = $2 WHERE id = $3',
-        [name, url, id],
+        'UPDATE favanime SET animename = $1, animeurl = $2 WHERE id = $3',
+        [animename, animeurl, id],
         (error, results) => {
             if (error) {
                 throw error
@@ -109,7 +109,7 @@ const updatedLink = (request, response) => {
 const deleteLink = (request, response) => {
     const id = parseInt(request.params.id)
 
-    pool.query('DELETE FROM myfavlinks WHERE id = $1', 
+    pool.query('DELETE FROM favanime WHERE id = $1', 
     [id], (error, results) => {
         if (error) {
             throw error
