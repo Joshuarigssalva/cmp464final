@@ -1,13 +1,13 @@
 import { useState } from 'react'
 
 const Form = ( {handleSubmit}) => {
-  const [change, setchange] = useState({name:"", url:""})
+  const [change, setchange] = useState({animename:"", animeurl:""})
   const handleChange = (event) => {
     /*
             TODO - Logic for changing state based on form changes
         */
     setchange((change) => ({ ...change, 
-      [event.target.name]: event.target.value }))
+      [event.target.animename]: event.target.value }))
 
   }
 
@@ -20,7 +20,7 @@ const Form = ( {handleSubmit}) => {
         */
             //alert("clicked")
        handleSubmit(change)
-       setchange({name:"", url:""})
+       setchange({animename:"", animeurl:""})
   }
 
   return (
@@ -33,17 +33,17 @@ const Form = ( {handleSubmit}) => {
 
         <input
           onChange={handleChange}
-          type={'text'} name='name' style={{ width: '25%' }} />
+          type={'text'} name='animename' style={{ width: '25%' }} />
 
       </div>
 
-      <div>URL</div>
+      <div>Anime URL</div>
 
       <div>
 
         <input
           onChange={handleChange}
-          type={'text'} name='url' style={{ width: '25%' }} />
+          type={'text'} name='animeurl' style={{ width: '25%' }} />
 
       </div>
 
